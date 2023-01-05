@@ -10,6 +10,11 @@ You will be graded on the exhaustiveness and quality of your unit tests, the dep
 
 ## Your Explanation Here
 
+The refactored versions of the deterministicPartitionKey function are more readable than the original because they remove unnecessary constants and variables, use ternary operators instead of nested if statements, and remove unnecessary code. These changes simplify the logic of the function and make it easier to understand.
+
+
+# Tests description(Bonus)
+
 ### "should return the partitionKey property of the event if it exists"
 - This test verifies that the deterministicPartitionKey function returns the partitionKey property of the event object when it exists. This is important because the function is designed to prioritize the use of the partitionKey property when it is present, and this test ensures that the function is correctly using the partitionKey property in this scenario.
 
