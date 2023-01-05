@@ -35,12 +35,8 @@ exports.deterministicPartitionKey = event => {
     return "0";
   }
 
-  if (event.partitionKey) {
-    return typeof event.partitionKey === "string"
-      ? event.partitionKey
-      : JSON.stringify(event.partitionKey);
-  }
-
-  const data = JSON.stringify(event);
-  return crypto.createHash("sha3-512").update(data).digest("hex");
+  const partitionKey = event.partitionKey || event;
+  return typeof partitionKey === "string"
+    ? partitionKey
+    : crypto.createHash("sha3-512").update(JSON.stringify(partitionKey)).digest("hex");
 };
